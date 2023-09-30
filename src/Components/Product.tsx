@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 function Product(props: { price: number; title: string; img: string }) {
   return (
     <div className="border-2 w-64 rounded-xl cursor-pointer mb-16 mr-5 shadow-lg hover:text-green-700">
-      <Link to={'/product/' + props.title}>
+      <Link
+        to={'/product/' + props.title}
+        state={{ title: props.title, img: props.img, price: props.price }}
+      >
         <img
           src={props.img}
           alt="product"

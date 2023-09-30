@@ -19,12 +19,12 @@ import {
   WalletMultiButton,
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
-import { SendSOLToRandomAddress } from './SendSol';
+import { SendSOL } from './SendSol';
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
 
-export const Wallet: FC = () => {
+export const Wallet: FC<{ price: number }> = ({ price }) => {
   // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
   const network = WalletAdapterNetwork.Devnet;
 
@@ -50,7 +50,7 @@ export const Wallet: FC = () => {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <WalletMultiButton />
-          <SendSOLToRandomAddress />
+          <SendSOL price={price} />
           {/* Your app's components go here, nested within the context providers. */}
         </WalletModalProvider>
       </WalletProvider>

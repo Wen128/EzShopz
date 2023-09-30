@@ -1,29 +1,28 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
 import Product from '../Components/Product';
-import product01 from '../Img/product_01.jpg';
-import product02 from '../Img/product_02.jpeg';
-import product03 from '../Img/product_03.jpeg';
-import product04 from '../Img/product_04.jpg';
+import { productsImg } from '../Components/ProductsList';
+import search from '../Img/search.png';
+import filter from '../Img/filter.png';
 
 function Home() {
-  let productsImg = [
-    { img: product01, title: 'black T-shirt', price: 4.56 },
-    { img: product02, title: 'Short Sleeve Shirt', price: 3.78 },
-    { img: product03, title: 'Blue shirt', price: 6.9 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-    { img: product04, title: 'Black long-sleeve shirt', price: 4.77 },
-  ];
   return (
     <div>
       <Navbar />
+      <div className="flex w-full justify-center mb-10">
+        <div className="flex w-2/3 justify-center relative border-2 rounded-3xl px-5 items-center">
+          <input
+            type="text"
+            placeholder="Search anything"
+            className="w-full outline-none"
+          />
+          <img src={search} alt="search absolute" className="w-8 h-8" />
+        </div>
+        <div className="flex justify-between items-center border-2 rounded-3xl p-5">
+          <p className="text-xl mr-3">Filter</p>
+          <img src={filter} alt="filter" className="w-8 h-8" />
+        </div>
+      </div>
       <div className="flex justify-center">
         <div className="w-5/6 flex justify-between flex-wrap">
           {productsImg.map((index) => (
